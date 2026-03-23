@@ -1,11 +1,14 @@
 package com.example.gestaoestado.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 
 @Composable
@@ -14,6 +17,7 @@ fun GetTextField(
     label: String,
     placeholder: String,
     keyboardType: KeyboardType,
+    corApp: Color,
     value: String,
     atualizarValor: (String) -> Unit
 ) {
@@ -35,7 +39,12 @@ fun GetTextField(
         value = value,
         onValueChange = {
             atualizarValor(it)
-        }
+        },
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedTextColor = corApp,
+            unfocusedTextColor = corApp
+        ),
+        shape= CircleShape
 
     )
 
